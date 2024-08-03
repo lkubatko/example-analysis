@@ -1,0 +1,74 @@
+---
+title: "analysis.qmd"
+author: "LSK"
+date: today
+embed-resources: true
+format: 
+  html:
+    code-fold: true
+    toc: true
+editor: source
+editor_options: 
+  chunk_output_type: console
+execute: 
+  echo: false
+  warning: false
+  message: false
+  fig-height: 8
+  fig-width: 8
+bibliography: references.bib
+---
+
+# Introduction {#sec-intro}
+
+This is my first Quarto doc!
+
+## Subsection 1 {#sec-subsec1}
+
+My first subsection, with my first list -- and I am modifying this line to push changes to github
+
+-   Item 1
+    -   Item 1a
+-   Item 2
+    -   Item 2a
+    -   Item 2b
+
+Let's try some cross-referencing. I'll refer to @sec-intro.
+
+<br><br><br>
+
+Now I'm trying to add figures from an analyis:
+
+<br>
+
+```{r}
+#| label: fig-histogram
+#| fig-cap: "Histograms of individual variables"
+#| fig-subcap:
+#|   - "Histogram of `speed`s"
+#|   - "Histogram of `dist`s" 
+#| layout-ncol: 2
+
+library("tidyverse")
+ggplot(cars, aes(x = speed)) +
+  geom_histogram(bins = 15) +
+  labs(title = "Histogram of speeds")
+
+ggplot(cars, aes(x = dist)) +
+  geom_histogram(bins = 15) +
+  labs(title = "Histogram of distances")
+```
+
+<br>
+
+## Citation practice -- cool!
+
+Trying to reference "Tidy Data" [@wickham2014]
+
+<br><br><br>
+
+
+## This is my better analysis!  I'm hoping I can merge.
+
+
+
